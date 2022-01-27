@@ -24,6 +24,27 @@ df <- select(df, ID, X, Name, Age, Nationality,
              Overall, Club, Value, Wage, Preferred.Positions)
 
 
-#---------------------------- ANALYSIS ----------------------------#
+#---------------------------- ANALYSIS ----------------------------------------#
 # 1. Show the first ten records with player statistics 
 head(df, 10)
+# 2. Convert the "Value" and the "Wage" columns to actual currency values. 
+# This function took a vector as an input and removed the “€” sign 
+# from the columns and multiplied it with appropriate number to convert it 
+# into thousand(K) and million(M).
+toNumberCurrency <- function(vector) {
+  vector <- as.character(vector)
+  vector <- gsub("(€|,)","", vector)
+  result <- as.numeric(vector)
+  
+  k_positions <- grep("K", vector)
+  result[k_positions] <- as.numeric(gsub("K","",        vector[k_positions])) * 1000
+  
+  m_positions <- grep("M", vector)
+  result[m_positions] <- as.numeric(gsub("M","", 
+                                         vector[m_positions])) * 1000000
+  
+  return(result)
+}
+
+df$Wage <- toNumberCurrency(df$Wage) 
+df$Value <- toNumberCurrency(df$Value)
