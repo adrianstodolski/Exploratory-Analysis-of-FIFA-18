@@ -14,6 +14,7 @@ install.packages("ggplot2", dependencies = TRUE)
 install.packages("dplyr", dependencies = TRUE)
 install.packages("gridExtra", dependencies = TRUE)
 # 4. Load require package.
+
 library(ggplot2)
 library(dplyr)
 library(gridExtra)
@@ -48,3 +49,17 @@ toNumberCurrency <- function(vector) {
 
 df$Wage <- toNumberCurrency(df$Wage) 
 df$Value <- toNumberCurrency(df$Value)
+# 3. Edition of the "Preferred.Positions" column
+df$Preferred.Positions <- gsub(" ", "", substr(df$Preferred.Positions, 1, 3))
+# 4. Edition of the "Preferred.Positions" column <- more specific values
+# GK - goalkeeper
+# DEF - defender
+# MID - winger
+# FWD - offensive
+x <- as.factor(df$Preferred.Positions)
+levels(x) <- list(GK  = c("GK"), 
+                  DEF = c("LWB", "LB", "CB", "RB", "RWB"), 
+                  MID = c("LW","LM","CDM","CM","CAM","RM","RW"), 
+                  FWD = c("CF", "ST"))
+df <- mutate(df, Position = x)
+head(df)
