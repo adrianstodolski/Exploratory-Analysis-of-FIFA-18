@@ -3,6 +3,7 @@ Final project for Big Data Analysis at CDV
 
 # Menu:
 * [Description](https://github.com/adrianstodolski/Exploratory-Analysis-of-FIFA-18#description)
+* [Conclusions](https://github.com/adrianstodolski/Exploratory-Analysis-of-FIFA-18#conclusions)
 
 # Description
 Exploratory Data Analysis of FIFA dataset from sofifa.com.
@@ -31,3 +32,6 @@ In this project, I analyzed attributes such as:
 * Number of players as per their general playing positions. Number of center-backs is the highest followed by the number of strikers
 * Attackers and midfielders are the most expensive and highest paid players
 * Real Madrid, Bayern Munich and FC Barcelona are the most valuable clubs
+
+# Charts
+![plot1](https://github.com/adrianstodolski/Exploratory-Analysis-of-FIFA-18/blob/main/Plots/1_88_L31Qze8nlYp8Cp71SJg.png?raw=true)
