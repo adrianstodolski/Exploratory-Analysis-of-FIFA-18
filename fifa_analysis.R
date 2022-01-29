@@ -118,7 +118,7 @@ value_brackets <- cut(x=df$Value, breaks=value_breaks,
                       labels=value_labels, include.lowest = TRUE)
 df <-mutate(df, value_brackets)
 head(df)
-# 10. 
+# 10. Wage and values plot
 not0To100K <- filter(df, wage_brackets != "0-100k") 
 ggplot(not0To100K, aes(x = wage_brackets)) + 
   geom_bar(aes(fill = ..count..)) + 
@@ -128,3 +128,47 @@ moreThan50M <- filter(df, Value>50000000)
 ggplot(moreThan50M, aes(x = value_brackets)) + 
   geom_bar(aes(fill = ..count..)) + 
   ggtitle("Distribution of value between 50M-100M+")
+# 11. Age vs Overall of players divided amongst wage brackets
+g_age_overall <- ggplot(df, aes(Age, Overall))
+g_age_overall + 
+  geom_point(aes(color=wage_brackets)) + geom_smooth(color="darkblue") + 
+  ggtitle("Distribution between Age and Overall of players based  on Wage bracket")
+# 12. Age vs Overall of players divided amongst value brackets
+g_age_overall <- ggplot(df, aes(Age, Overall))
+g_age_overall + geom_point(aes(color=value_brackets)) + geom_smooth(color="darkblue") + 
+  ggtitle("Distribution between Age and Overall of players based on Value bracket")
+# 13. Number of players as per their general playing positions
+ggplot(df, aes(Position)) + 
+  geom_bar(aes(fill = ..count..)) + 
+  ggtitle("Distribution based on General Playing Position")
+# 14. Number of players as per their preferred playing positions
+ggplot(df, aes(Preferred.Positions)) + geom_bar(aes(fill=..count..)) + 
+  ggtitle("Distribution of players based on preferred position")
+# 15. Players paid as wages and their valuation based on their preferred positions.
+# Position based on value
+gf1 <- filter(df, Value<30000000)
+g1 <- ggplot(gf1, aes(Preferred.Positions)) + geom_bar(aes(fill=value_brackets)) + 
+  ggtitle("Position based on Value (0-50M)")
+gf2 <- filter(df,Value>30000000)
+g2 <- ggplot(gf2, aes(Preferred.Positions)) + geom_bar(aes(fill=value_brackets)) + 
+  ggtitle("Position based on Value (50M +)")
+grid.arrange(g1, g2, ncol=1)
+# Position based on wage
+gw1 <- filter(df, Wage > 100000, Wage<300000)
+g1 <- ggplot(gw1, aes(Preferred.Positions)) + geom_bar(aes(fill=wage_brackets)) + 
+  ggtitle("Position based on Wage (0-100k)") 
+gw2 <- filter(df,Wage>300000) 
+g2 <- ggplot(gw2, aes(Preferred.Positions)) + geom_bar(aes(fill=wage_brackets)) + 
+  ggtitle("Position based on Wage (100k+)")
+grid.arrange(g1, g2, ncol=1)
+# 16. The top ten valuable clubs
+# The club value is calculated by summing up the player valuation for each club
+group_clubs <- group_by(df, Club)
+club_value <- summarise(group_clubs, total_val = sum(Value))
+top_10_valuable_clubs <- top_n(club_value, 10, total_val)
+
+top_10_valuable_clubs$Club <-as.factor(top_10_valuable_clubs$Club)
+
+ggplot(top_10_valuable_clubs, aes(x = Club, y = total_val)) + geom_bar(stat = "identity", aes(fill=total_val)) + coord_flip() + ggtitle("Top 10 valuable clubs")
+#---------------------------- CONCLUSIONS -------------------------------------#
+# 
