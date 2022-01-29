@@ -1,6 +1,9 @@
 # Exploratory Data Analysis of FIFA dataset using R
 Final project for Big Data Analysis at CDV
 
+# Menu:
+* [Description](https://github.com/adrianstodolski/Exploratory-Analysis-of-FIFA-18#description)
+
 # Description
 Exploratory Data Analysis of FIFA dataset from sofifa.com.
 In this project, I analyzed attributes such as:
