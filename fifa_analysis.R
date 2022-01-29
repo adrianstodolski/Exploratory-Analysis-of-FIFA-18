@@ -100,3 +100,31 @@ g_wage <- ggplot(filtered_value, aes(Value))
 g_wage + 
   geom_histogram(aes(fill=..count..)) + 
   ggtitle("Distribution of top 1% Value")
+# 9. Create "wage_brackets" and "value_brackets"
+# For further analyze the "wage" and "value"
+# The wage_brackets are: 0–100k 100k-200k 200k-300k 300k-400k 400k-500k 500k+
+# The value_brackets are : 0–10M 10–20M 20–30M 30–40M 40–50M 50–60M 60–70M 70–80M 80–90M 90–100M 100M+ 
+# Create wage brackets
+wage_breaks <- c(0, 100000, 200000, 300000, 400000, 500000, Inf)
+wage_labels <- c("0-100k", "100k-200k", "200k-300k", "300k-400k", "400k-500k", "500k+")
+wage_brackets <- cut(x=df$Wage, breaks=wage_breaks, 
+                     labels=wage_labels, include.lowest = TRUE)
+df <- mutate(df, wage_brackets)
+# Create value brackets
+
+value_breaks <- c(0, 10000000, 20000000, 30000000, 40000000, 50000000, 60000000, 70000000, 80000000, 90000000, 100000000, Inf)
+value_labels <- c("0-10M", "10-20M", "20-30M", "30-40M", "40-50M","50-60M", "60-70M", "70-80M", "80-90M","90-100M","100M+")
+value_brackets <- cut(x=df$Value, breaks=value_breaks, 
+                      labels=value_labels, include.lowest = TRUE)
+df <-mutate(df, value_brackets)
+head(df)
+# 10. 
+not0To100K <- filter(df, wage_brackets != "0-100k") 
+ggplot(not0To100K, aes(x = wage_brackets)) + 
+  geom_bar(aes(fill = ..count..)) + 
+  ggtitle("Distribution of top Wage between 100K-500K+")
+# Plot
+moreThan50M <- filter(df, Value>50000000)
+ggplot(moreThan50M, aes(x = value_brackets)) + 
+  geom_bar(aes(fill = ..count..)) + 
+  ggtitle("Distribution of value between 50M-100M+")
