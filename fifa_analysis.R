@@ -171,4 +171,17 @@ top_10_valuable_clubs$Club <-as.factor(top_10_valuable_clubs$Club)
 
 ggplot(top_10_valuable_clubs, aes(x = Club, y = total_val)) + geom_bar(stat = "identity", aes(fill=total_val)) + coord_flip() + ggtitle("Top 10 valuable clubs")
 #---------------------------- CONCLUSIONS -------------------------------------#
-# 
+# There is a high number of players around 25 years of age
+# Most of the goalkeepers are around 22 years old
+# Most of the defenders are around 25 years old
+# Most of the wingers are around 22/25 years old
+# Most of the offensives are around 25 years old
+# Majority number of players have an overall rating of around 65
+# Most of the players are from England and also a lot of the players come from Germany, France and Spain
+# A large number of players earn a weekly wage of €100000
+# A large number of players are worth €25,000,000 with the count decreasing sharply as the price increases
+# A very large number of players have wages which lie between 0–100k and valuation between 0–50M
+# The highest wages are commanded by players of overall 85+ and age around 30 years. Cristiano Ronaldo is number one
+# Number of players as per their general playing positions. Number of center-backs is the highest followed by the number of strikers
+# Attackers and midfielders are the most expensive and highest paid players
+# Real Madrid, Bayern Munich and FC Barcelona are the most valuable clubs
