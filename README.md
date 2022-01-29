@@ -4,6 +4,7 @@ Final project for Big Data Analysis at CDV
 # Menu:
 * [Description](https://github.com/adrianstodolski/Exploratory-Analysis-of-FIFA-18#description)
 * [Conclusions](https://github.com/adrianstodolski/Exploratory-Analysis-of-FIFA-18#conclusions)
+* [Charts](https://github.com/adrianstodolski/Exploratory-Analysis-of-FIFA-18#charts)
 
 # Description
 Exploratory Data Analysis of FIFA dataset from sofifa.com.
@@ -35,3 +36,17 @@ In this project, I analyzed attributes such as:
 
 # Charts
 ![plot1](https://github.com/adrianstodolski/Exploratory-Analysis-of-FIFA-18/blob/main/Plots/1_88_L31Qze8nlYp8Cp71SJg.png?raw=true)
+![plot2](https://github.com/adrianstodolski/Exploratory-Analysis-of-FIFA-18/blob/main/Plots/1_8qrLPtAI9saWAmob-VjOQg.png?raw=true)
+![plot3](https://github.com/adrianstodolski/Exploratory-Analysis-of-FIFA-18/blob/main/Plots/1_AmgThvZGz6j018YkfNc-kA.png?raw=true)
+![plot4](https://github.com/adrianstodolski/Exploratory-Analysis-of-FIFA-18/blob/main/Plots/1_HqAVGsvbS0uauLD1DVH81w.png?raw=true)
+![plot5](https://github.com/adrianstodolski/Exploratory-Analysis-of-FIFA-18/blob/main/Plots/1_RnJnBtrC7xjDeiz3LVWJ0g.png?raw=true)
+![plot6](https://github.com/adrianstodolski/Exploratory-Analysis-of-FIFA-18/blob/main/Plots/1_T-evvVGwPfKzbXLqQ50eIQ.png?raw=true)
+![plot7](https://github.com/adrianstodolski/Exploratory-Analysis-of-FIFA-18/blob/main/Plots/1_TzzS9vHTDzuzRxk_iNKGCA.png?raw=true)
+![plot8](https://github.com/adrianstodolski/Exploratory-Analysis-of-FIFA-18/blob/main/Plots/1_Vl9ewMxUicL6uUtHei7JxQ.png?raw=true)
+![plot9](https://github.com/adrianstodolski/Exploratory-Analysis-of-FIFA-18/blob/main/Plots/1__eyTgUj0ulLmTPV7fEAd9w.png?raw=true)
+![plot10](https://github.com/adrianstodolski/Exploratory-Analysis-of-FIFA-18/blob/main/Plots/1_aydII4fQf506tkbZLTStVw.png?raw=true)
+![plot11](https://github.com/adrianstodolski/Exploratory-Analysis-of-FIFA-18/blob/main/Plots/1_bINvc-6sywnW0vKYAge9bA.png?raw=true)
+![plot12](https://github.com/adrianstodolski/Exploratory-Analysis-of-FIFA-18/blob/main/Plots/1_88_L31Qze8nlYp8Cp71SJg.png?raw=true)
+![plot13](https://github.com/adrianstodolski/Exploratory-Analysis-of-FIFA-18/blob/main/Plots/1_i4w8c4S1gf26Z1FtT_d0SQ.png?raw=true)
+![plot14](https://github.com/adrianstodolski/Exploratory-Analysis-of-FIFA-18/blob/main/Plots/1_jR5wH0X9c799Koo0UzpQ1g.png?raw=true)
+![plot15](https://github.com/adrianstodolski/Exploratory-Analysis-of-FIFA-18/blob/main/Plots/1_oH9rn21u4SnaQXLoFdyetw.png?raw=true)
