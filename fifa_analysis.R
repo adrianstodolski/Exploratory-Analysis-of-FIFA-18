@@ -31,7 +31,7 @@ head(df, 10)
 # 2. Convert the "Value" and the "Wage" columns to actual currency values. 
 # This function took a vector as an input and removed the “€” sign 
 # from the columns and multiplied it with appropriate number to convert it 
-# into thousand(K) and million(M).
+# into thousand(K) and million(M)
 toNumberCurrency <- function(vector) {
   vector <- as.character(vector)
   vector <- gsub("(€|,)","", vector)
@@ -63,3 +63,40 @@ levels(x) <- list(GK  = c("GK"),
                   FWD = c("CF", "ST"))
 df <- mutate(df, Position = x)
 head(df)
+# 5. Distribution of players based on the age
+g_age <- ggplot(data = df, aes(Age))
+g_age + 
+  geom_histogram(col="orange", aes(fill = ..count..)) + ggtitle("Distribution based on Age")
+# 6. Relation between the Age of the players and their general playing position.
+g_age + 
+  geom_density(col="orange", aes(fill = Position), alpha=0.5) + facet_grid(.~Position) + 
+  ggtitle("Distribution based on Age and Position")
+# 6. Distribution of players based on their overall rating
+g_overall <- ggplot(data = df, aes(Overall))
+g_overall + 
+  geom_histogram(col="orange", aes(fill = ..count..)) + ggtitle("Distribution based on Overall Rating")
+# 7. Number of players from different (top 10) countries
+countries_count <- count(df, Nationality)
+top_10_countries <- top_n(countries_count, 10, n)
+top_10_country_names <- top_10_countries$Nationality
+
+country <- filter(df, Nationality == top_10_country_names)
+ggplot(country, aes(x = Nationality)) + 
+  geom_bar(col = "orange", aes(fill = ..count..)) + ggtitle("Distribution based on Nationality of Players (Top 10 Countries)")
+# 8. Top 1 % count of the player "Value" and "Wage"
+# Quantile function
+top_1_percent_wage   <- quantile(df$Wage, probs=0.99)
+filtered_wage <- filter(df, Wage > top_1_percent_wage)
+
+g_value <- ggplot(filtered_wage, aes(Wage))
+g_value + 
+  geom_histogram(aes(fill=..count..)) + 
+  ggtitle("Distribution of top 1% value")
+
+top_1_percent_value   <- quantile(df$Value, probs=0.99)
+filtered_value <- filter(df, Value > top_1_percent_value)
+# Second chart
+g_wage <- ggplot(filtered_value, aes(Value))
+g_wage + 
+  geom_histogram(aes(fill=..count..)) + 
+  ggtitle("Distribution of top 1% Value")
